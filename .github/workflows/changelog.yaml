@@ -1,0 +1,36 @@
+name: Changelog
+
+# Renovate only bumps the version in config.json; add the matching CHANGELOG
+# entry to its branch so Home Assistant shows it in the update dialog.
+on:
+  push:
+    branches:
+      - "renovate/**"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: changelog-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Add CHANGELOG entry
+        run: python3 .github/scripts/update_changelog.py portainer_agent
+
+      - name: Commit
+        run: |
+          if git diff --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          version=$(python3 -c 'import json; print(json.load(open("portainer_agent/config.json"))["version"])')
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "Add changelog entry for ${version}"
+          git push
