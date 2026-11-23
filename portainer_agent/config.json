@@ -1,0 +1,24 @@
+{
+  "name": "Portainer Agent",
+  "version": "2.39.1",
+  "slug": "portainer-agent",
+  "description": "Portainer agent for remote management",
+  "url": "https://github.com/thecode/ha-portainer-agent",
+  "advanced": true,
+  "startup": "services",
+  "arch": ["amd64"],
+  "init": false,
+  "ports": {
+    "9001/tcp": 9001
+  },
+  "ports_description": {
+    "9001/tcp": "Portainer Agent API"
+  },
+  "docker_api": true,
+  "privileged": ["NET_ADMIN", "SYS_ADMIN"],
+  "options": {},
+  "schema": {
+    "log_level": "list(trace|debug|info|notice|warning|error|fatal)?",
+    "agent_secret": "password?"
+  }
+}

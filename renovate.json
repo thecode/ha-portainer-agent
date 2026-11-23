@@ -1,0 +1,22 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "dependencyDashboard": false,
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Add-on version is the Portainer agent version",
+      "managerFilePatterns": ["/^portainer_agent/config\\.json$/"],
+      "matchStrings": ["\"version\": \"(?<currentValue>[^\"]+)\""],
+      "depNameTemplate": "portainer/agent",
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
+    }
+  ],
+  "packageRules": [
+    {
+      "matchDepNames": ["portainer/agent"],
+      "commitMessageTopic": "Portainer agent"
+    }
+  ]
+}
