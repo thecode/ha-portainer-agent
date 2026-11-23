@@ -6,6 +6,8 @@ The add-on version matches the Portainer agent version. See the
 ## Unreleased
 
 - Fix the agent's lookup of its own container (startup warning "No such container")
+- The `log_level` option now sets the agent's log level
+- Add a watchdog that restarts the add-on if the agent stops answering on port 9001
 
 ## 2.45.4
 
