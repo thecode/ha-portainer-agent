@@ -16,7 +16,9 @@
   "packageRules": [
     {
       "matchDepNames": ["portainer/agent"],
-      "commitMessageTopic": "Portainer agent"
+      "commitMessageTopic": "Portainer agent",
+      "description": "agent 3.x tags have no matching Portainer CE server release",
+      "allowedVersions": "/^2\\./"
     }
   ]
 }

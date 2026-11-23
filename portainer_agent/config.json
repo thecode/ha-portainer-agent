@@ -1,6 +1,6 @@
 {
   "name": "Portainer Agent",
-  "version": "2.39.1",
+  "version": "2.45.4",
   "slug": "portainer-agent",
   "description": "Portainer agent for remote management",
   "url": "https://github.com/thecode/ha-portainer-agent",
