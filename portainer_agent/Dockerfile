@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/base:21.0.11
+ARG BUILD_FROM=ghcr.io/hassio-addons/base:21.1.0
 # Supervisor passes the add-on version from config.json; it is the Portainer agent version
 ARG BUILD_VERSION
 
